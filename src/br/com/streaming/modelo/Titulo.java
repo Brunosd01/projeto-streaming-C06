@@ -26,6 +26,8 @@ public abstract class Titulo implements Classificavel, Serializable {
         //System.out.println("Duração: " + duracaoEmMinutos + " min");
         System.out.println("Gênero: " + genero);
         System.out.println("Incluído no plano: " + (incluidoNoPlano ? "Sim" : "Não"));
+        // Supondo que você tenha um método chamado pegaMedia() ou getClassificacao()
+        System.out.println("Classificação: " + pegaMedia() + " estrelas");
     }
 
     public void avalia(double nota) {
@@ -35,6 +37,16 @@ public abstract class Titulo implements Classificavel, Serializable {
         }
         somaDasAvaliacoes += nota;
         totalDeAvaliacoes++;
+    }
+
+    // Método para calcular a média das avaliações
+    public double pegaMedia() {
+        // Se ainda não tiver nenhuma avaliação, retorna 0 para não dar erro matemático
+        if (totalDeAvaliacoes == 0) {
+            return 0;
+        }
+        // Calcula a média dividindo a soma total pelo número de avaliações
+        return somaDasAvaliacoes / totalDeAvaliacoes;
     }
 
     public double obterMediaAvaliacoes() {

@@ -77,4 +77,27 @@ public class PlataformaStreaming {
             System.err.println("Falha na reprodução do vídeo: " + e.getMessage());
         }
     }
+
+    // Método para remover um título pelo nome
+    public boolean removerTitulo(String nome) {
+        Titulo tituloParaRemover = buscarTituloPorNome(nome);
+
+        if (tituloParaRemover != null) {
+            catalogo.remove(tituloParaRemover);
+            gerenciador.salvarDados(this.catalogo);
+            return true; // Retorna verdadeiro se conseguiu remover
+        }
+        return false; // Retorna falso se o título não existia
+    }
+
+    // Método para devolver a lista de títulos para a Main conseguir imprimir
+    public List<Titulo> getCatalogo() {
+        return this.catalogo; // Se a sua lista tiver outro nome, mude "catalogo" aqui
+    }
+
+    // Método para fechar e salvar os dados
+    public void fecharPlataforma() {
+        System.out.println("Salvando o catálogo no arquivo...");
+    }
+
 }

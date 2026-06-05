@@ -15,7 +15,7 @@ public class Serie extends Titulo {
         this.ativa = true;
     }
 
-    // Critério 04: Polimorfismo. A série calcula a duração total dinamicamente
+    //Polimorfismo, A série calcula a duração total dinamicamente
     @Override
     public int getDuracaoEmMinutos() {
         return temporadas * episodiosPorTemporada * minutosPorEpisodio;

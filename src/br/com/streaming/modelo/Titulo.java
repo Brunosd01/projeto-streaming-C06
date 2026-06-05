@@ -19,7 +19,11 @@ public abstract class Titulo implements Classificavel, Serializable {
 
     public void exibeFichaTecnica() {
         System.out.println("Nome: " + nome);
-        System.out.println("Duração: " + duracaoEmMinutos + " min");
+        //SÓ VAI IMPRIMIR A DURAÇÃO SE FOR FILME (MAIOR QUE 0)
+        if (this.duracaoEmMinutos > 0) {
+            System.out.println("Duração em minutos: " + duracaoEmMinutos + " min");
+        }
+        //System.out.println("Duração: " + duracaoEmMinutos + " min");
         System.out.println("Gênero: " + genero);
         System.out.println("Incluído no plano: " + (incluidoNoPlano ? "Sim" : "Não"));
     }

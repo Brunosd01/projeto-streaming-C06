@@ -23,8 +23,15 @@ public class PlataformaStreaming {
     }
 
     public void cadastrarTitulo(Titulo t) {
+        // Verifica se o título já está na lista usando o nome
+        if (buscarTituloPorNome(t.getNome()) != null) {
+            // Se já existir, ele avisa e sai do método sem duplicar
+            System.out.println("[Sistema] Aviso: O título '" + t.getNome() + "' já está no catálogo.");
+            return;
+        }
+
+        // Se não existir, ele cadastra normalmente e salva
         catalogo.add(t);
-        // Salva os dados no arquivo toda vez que cadastra algo novo
         gerenciador.salvarDados(catalogo);
     }
 
